@@ -1,0 +1,218 @@
+version: '3.1'
+intents:
+# generales
+- afirmar
+- negar
+- saludar
+- despedirse
+- mostrar_buen_humor
+- mostrar_mal_humor
+- preguntar_por_bot
+# usuario
+- decir_apodo_usuario
+- decir_contrasena_usuario
+- decir_nombre_usuario
+- decir_apellido_usuario
+- decir_correo_usuario
+# cilindro
+- preguntar_por_cilindro
+- decir_tipo_cilindro
+- decir_diametro_cilindro
+- decir_carrera_cilindro
+# frl
+- preguntar_por_frl
+- decir_rosca_frl
+# manguera
+- preguntar_por_manguera
+- decir_diametro_manguera
+# racor
+- preguntar_por_racor
+- decir_tipo_racor
+- decir_rosca_racor
+- decir_diametro_racor
+# valvula
+- preguntar_por_valvula
+- decir_tipo_valvula
+- decir_rosca_valvula
+entities:
+# usuario
+- apodo_usuario
+- contrasena_usuario
+- nombre_usuario
+- apellido_usuario
+- correo_usuario
+# cilindro
+- tipo_cilindro
+- diametro_cilindro
+- carrera_cilindro
+# frl
+- rosca_frl
+# manguera
+- diametro_manguera
+# racor
+- tipo_racor
+- rosca_racor
+- diametro_racor
+# valvula
+- tipo_valvula
+- rosca_valvula
+slots:
+# usuario
+  apodo_usuario:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: apodo_usuario
+  correo_usuario:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: correo_usuario    
+  contrasena_usuario:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: contrasena_usuario
+  nombre_usuario:
+    initial_value: usuario
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: nombre_usuario
+  apellido_usuario:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: apellido_usuario
+# cilindro
+  tipo_cilindro:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: tipo_cilindro
+  diametro_cilindro:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: diametro_cilindro
+  carrera_cilindro:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: carrera_cilindro
+# frl 
+  rosca_frl:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: rosca_frl  
+# manguera
+  diametro_manguera:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: diametro_manguera
+# racor
+  tipo_racor:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: tipo_racor
+  rosca_racor:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: rosca_racor 
+  diametro_racor:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: diametro_racor 
+# valvula
+  tipo_valvula:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: tipo_valvula
+  rosca_valvula:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: rosca_valvula      
+responses:
+# usuario
+  utter_pregunta_nombre_usuario:
+  - text: ¿Cómo te llamas?
+  - text: ¿Cuál es tú nombre?
+  utter_pregunta_correo_usuario:
+  - text: ¿Cuál es tú correo?
+  - text: Dame tu e-mail, por favor
+  utter_saludo:
+  - text: ¡Epale {nombre_usuario}!, ¿Cómo estás?
+  - text: ¡Hola {nombre_usuario}!, ¿Cómo te encuentras?
+  utter_gusto:
+  - text: ¡Un gusto conocerte {nombre_usuario}!, ¿Cómo estás?
+  - text: ¡Mucho gusto {nombre_usuario}!, ¿Cómo te encuentras?
+  utter_animo:
+  - text: Espero que todo mejore pronto {nombre_usuario}, ¿Cómo puedo ayudarte?
+  - text: Deseo que puedas resolver tus problemas {nombre_usuario}, ¿De qué manera puedo ayudarte?
+  utter_felicidad:
+  - text: ¡Excelente {nombre_usuario}, me alegro!, ¿En qué puedo serte útil?
+  - text: ¡Estupendo!, ¿Qué estas buscando {nombre_usuario}?
+  utter_despedida:
+  - text: Adios
+  - text: Hasta luego
+  utter_quieneres:
+  - text: Soy NacaBot, un bot conversacional
+  - text: Soy un agente conversacional, para asesorías en neumática
+  - text: Soy un Chat Bot, creado por José Aquino para NACA
+  utter_confirmacion_componente_cilindro:
+  - text: ¿Trabajaremos con cilindros neumáticos?
+  utter_pregunta_carrera_cilindro:
+  - text: ¿Qué carrera buscas?
+  - text: ¿Cuál será el desplazamiento del vástago?
+  utter_confirmacion_componente_valvula:
+  - text: ¿Quieres que te ayude a seleccionar una válvula?
+  - text: ¿Trabajaremos con válvulas neumáticas?
+  utter_confirmacion_componente_frl:
+  - text: ¿Quieres que te ayude a seleccionar una unidad_de_mantenimiento?
+  - text: ¿Trabajaremos con frl?
+  utter_confirmacion_componente_manguera:
+  - text: ¿Quieres que te ayude a seleccionar una manguera?
+  - text: ¿Trabajaremos con tuberias neumáticas?
+  utter_confirmacion_componente_racor:
+  - text: ¿Quieres que te ayude a seleccionar un racor?
+  - text: ¿Trabajaremos con conexiones neumáticas?
+actions:
+- utter_animo
+- utter_confirmacion_componente_cilindro
+- utter_confirmacion_componente_manguera
+- utter_despedida
+- utter_gusto
+- utter_pregunta_carrera_cilindro
+- utter_pregunta_correo_usuario
+- utter_pregunta_nombre_usuario
+- utter_saludo
+forms:
+  formulario_usuario:
+    required_slots:
+    - correo_usuario
+    - nombre_usuario
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

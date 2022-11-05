@@ -1,0 +1,50 @@
+version: "3.1"
+
+rules:
+
+- rule: enviar_formulario
+  condition:
+  # Condición de que el formulario esté activo.
+  - active_loop: formulario_usuario
+  steps:
+  # El formulario está desactivado
+  - action: formulario_usuario
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # Las acciones que queremos ejecutar cuando se envía el formulario.
+  - action: utter_gusto
+
+- rule: Despidete si se despide
+  steps:
+  - intent: despedirse
+  - action: utter_despedida
+
+- rule: presentate si te preguntan por ti
+  steps:
+  - intent: preguntar_por_bot
+  - action: utter_quieneres
+
+- rule: Verifca si necesita ayuda con un cilindro
+  steps:
+  - intent: preguntar_por_cilindro
+  - action: utter_confirmacion_componente_cilindro 
+
+- rule: Verifca si necesita ayuda con una valvula
+  steps:
+  - intent: preguntar_por_valvula
+  - action: utter_confirmacion_componente_valvula
+- rule: Verifca si necesita ayuda con un frl
+  steps:
+  - intent: preguntar_por_frl
+  - action: utter_confirmacion_componente_frl
+
+- rule: Verifca si necesita ayuda con un racor
+  steps:
+  - intent: preguntar_por_racor
+  - action: utter_confirmacion_componente_racor
+
+- rule: Verifca si necesita ayuda con una manguera
+  steps:
+  - intent: preguntar_por_manguera
+  - action: utter_confirmacion_componente_manguera  
