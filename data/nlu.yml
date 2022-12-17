@@ -1,1 +1,226 @@
+version: "3.1"
+
+nlu:
+
+# ********** Estructura de la conversación
+
+# iniciar
+
+#... saludar
+
+- intent: iniciar/saludar
+  examples: |
+    - hola
+    - buenos dias
+    - buenas noches
+    - buenas tardes
+    - hola amigo
+    - epale
+    - que tal
+    - que hubo
+
+- intent: iniciar/buen_humor
+  examples: |
+    - bien
+    - feliz
+    - motivado
+    - alegre
+    - confiado
+
+- intent: iniciar/mal_humor
+  examples: |
+    - mal
+    - infeliz
+    - desmotivado
+    - triste
+    - desconfiado
+    - deprimido
+
+# charla_cortez
+
+# ...sobre nacabot
+
+- intent: charla_cortez/quien_es_nacabot
+  examples: |
+    - ¿Eres un bot?
+    - ¿Eres un humano?
+    - ¿Qué eres?
+    - ¿Quien eres?
+    - ¿Estoy hablando con un bot?
+    - ¿Estoy hablando con un humano?
+
+- intent: charla_cortez/que_funcion_nacabot
+  examples: |
+    - ¿cual es tu funcion?
+    - ¿para que sirves?
+    - ¿cuales son tus objetivos?
+    - ¿a que te dedicas?
+    - ¿Qué haces?
+    - ¿De qué te ocupas?
+
+ # ...sobre tema de dialogo 
+
+- intent: charla_cortez/nacabot_no_presta_servicio
+  examples: |
+    - [clima](tema_no_entrenado)
+    - [politica](tema_no_entrenado)
+    - [sexo](tema_no_entrenado)
+    - [religión](tema_no_entrenado)
+    - [deporte](tema_no_entrenado)
+    - [turismo](tema_no_entrenado)
+    - [arte](tema_no_entrenado)
+    - [espectaculo](tema_no_entrenado)
+    - [educacion](tema_no_entrenado)
+
+- intent: charla_cortez/nacabot_presta_servicio
+  examples: |     
+    - Dialogar [neumatica](tema_entrenado)
+    - Quiero [neumatica](tema_entrenado)
+    - hablar [neumatica](tema_entrenado)
+
+# charla_neumatica
+
+# ... neumatica
+- intent: charla_neumatica/definicion_neumatica
+  examples: |
+    - neumatica
+    - ¿qué  es la neumática?
+    - ¿qué utiliza la neumática?
+    - ¿qué controla la neumatica?
+
+- intent: charla_neumatica/variables_neumaticas
+  examples: |
+    - variables
+    - ¿Qué variables usa la neumatica?
+    - ¿cuáles son las variables de la neumática?
+    - háblame de las variables 
+    - cuentame sobre esas variables
+    - dime más de las variables
+
+- intent: charla_neumatica/presion
+  examples: |
+    - presion
+    - ¿Cuál es la definición de la presion?
+    - ¿Qué es la presión?
+    - háblame de la presión 
+    - cuentame sobre la presión
+    - dime más de la presión
+
+- intent: charla_neumatica/caudal
+  examples: |
+    - caudal
+    - ¿Cuál es la definición del caudal? 
+    - ¿Qué es el caudal?
+    - háblame del caudal 
+    - cuentame sobre el caudal
+    - dime más del caudal
+
+- intent: charla_neumatica/trabajo
+  examples: |
+    - trabajo
+    - fuerza
+    - ¿con que se realiza un trabajo mecánico?
+    - ¿que dispositivo se utiliza para realizar un trabajo mecanico?  
+    - ¿Qué es el trabajo?
+    - háblame del trabajo 
+    - cuentame sobre el trabajo
+    - dime más del trabajo
+    - como se ejerce la fuerza
+    - quien ejerce la fuerza
+
+- intent: charla_neumatica/control
+  examples: |
+    - ¿Qué es el control?
+    - háblame del control 
+    - cuentame sobre el control
+    - dime más del control
+    - ¿como se controla un proceso industrial?        
+    - ¿que dispositivo se utiliza para controlar un proceso industrial?
+
+# ... cilindro
+- intent: charla_neumatica/cilindro
+  examples: |
+    - cilindro
+    - ¿Qué es un cilindro?
+    - ¿Cuál es la definición de cilindro?  
+
+# ... valvula
+- intent: charla_neumatica/valvula
+  examples: |
+    - valvula
+    - ¿Qué es una valvula?
+    - ¿Cuál es la definición de valvula?
+
+# validacion_usuario
+
+# ...formulario_usuario
+- intent: nombre_usuario
+  examples: |
+    - [Usuario1](nombre_usuario)
+    - [Usuario2](nombre_usuario)
+    - [Usuario3](nombre_usuario)
+
+- intent: tipo_usuario
+  examples: |
+    - [experto](tipo_usuario)
+    - [vendedor](tipo_usuario)
+    - [cliente](tipo_usuario) 
+
+# servicio
+
+# ... inicio
+             
+- intent: tipo_servicio
+  examples: |
+    - [asesoria](tipo_servicio)
+    - [entrenamiento](tipo_servicio)  
+
+# finalizar
+
+#...despedida
+- intent: finalizar/despedir
+  examples: |
+    - te veo luego
+    - adios
+    - que tengas un lindo dia
+    - ya nos veremos
+    - hasta luego
+    - hasta pronto
+    - chau
+ 
+# ********** Conversación general
+
+# confirmar
+- intent: confirmacion
+  examples: |
+    - confirmo
+    - apruebo
+    - ratifico
+
+# afirmar 
+- intent: afirmacion
+  examples: |
+    - si
+    - afirmativo
+    - correcto
+    - siempre
+    - ok
+
+# negar  
+- intent: negacion
+  examples: |
+    - no
+    - negativo
+    - incorrecto
+    - nunca
+    - nok
+
+# dudar        
+- intent: duda  
+  examples: |
+    - no lo se
+    - tal vez
+    - puede ser
+
+
 
