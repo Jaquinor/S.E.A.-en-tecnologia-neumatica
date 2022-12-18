@@ -124,6 +124,7 @@ responses:
  
   utter_solicita_confirmacion:
   - text: ¿Por favor confirmar?    
+
   utter_recepcion_confirmacion:
   - text: confirmación recibida
   
