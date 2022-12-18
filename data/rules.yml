@@ -48,9 +48,7 @@ rules:
   - action: utter_nombre_usuario
   - action: utter__tipo_usuario
   - action: utter_tipo_servicio
-  - intent: confirmacion
-  - action: utter_recepcion_confirmacion
-    
+      
 #- rule: camino_no_feliz_en_formulario_usuario
 #  condition:
 #  - active_loop: formulario_usuario
@@ -69,6 +67,28 @@ rules:
   - intent: finalizar
   - action: utter_finalizar   
     
+# Conversación general
+
+- rule: recepción_confirmacion
+  steps:
+  - intent: confirmacion
+  - action: utter_recepcion_confirmacion
+  
+- rule: recepción_afirmacion
+  steps:
+  - intent: afirmacion
+  - action: utter_recepcion_afirmacion
+  
+- rule: recepción_negacion
+  steps:
+  - intent: negacion
+  - action: utter_recepcion_negacion  
+  
+- rule: recepción_duda
+  steps:
+  - intent: duda
+  - action: utter_recepcion_duda    
+
 # Acciones personalizadas
 
 #- rule: iniciar  

@@ -26,6 +26,7 @@ nlu:
     - motivado
     - alegre
     - confiado
+    - no mal
 
 - intent: iniciar/mal_humor
   examples: |
@@ -35,6 +36,7 @@ nlu:
     - triste
     - desconfiado
     - deprimido
+    - no bien
 
 # charla_cortez
 
@@ -67,6 +69,8 @@ nlu:
     - [sexo](tema_no_entrenado)
     - [religión](tema_no_entrenado)
     - [deporte](tema_no_entrenado)
+    - [futbol](tema_no_entrenado)
+    - [beisbol](tema_no_entrenado)
     - [turismo](tema_no_entrenado)
     - [arte](tema_no_entrenado)
     - [espectaculo](tema_no_entrenado)
@@ -187,6 +191,8 @@ nlu:
     - hasta luego
     - hasta pronto
     - chau
+    - fin
+    - parar
  
 # ********** Conversación general
 
