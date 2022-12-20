@@ -1,0 +1,70 @@
+version: "3.1"
+
+rules:
+
+# Charlas y preguntas frecuentes
+
+- rule: tema_dialogo
+  steps:
+  - intent: tema_dialogo
+  - action: utter_tema_dialogo
+
+- rule: charla
+  steps:
+  - intent: charla
+  - action: utter_charla
+  
+- rule: definicion
+  steps:
+  - intent: definicion
+  - action: utter_definicion  
+
+# Formulario de usuario
+
+- rule: activar_formulario_usuario
+  steps:
+  - intent: solicitar_servicio 
+  - action: formulario_usuario
+  - active_loop: formulario_usuario
+  
+- rule: desactivar_formulario_usuario  
+  condition:
+  - active_loop: formulario_usuario
+  steps:
+  - action: formulario_usuario
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_charla/solicita_confrmacion
+  - action: utter_nombre_usuario
+  - action: utter_tipo_usuario
+  - intent: charla
+  
+- rule: camino_no_feliz_en_formulario_usuario
+  condition:
+  - active_loop: formulario_usuario
+  steps: 
+  - intent: charla
+  - action: utter_charla
+  - action: formulario_usuario
+  - active_loop: formulario_usuario
+  
+# Acciones personalizadas
+
+- rule: iniciar  
+  steps:
+  - intent: iniciar
+  - action: action_iniciar 
+  
+- rule: crear_agente
+  steps:
+  - intent: crear_agente
+  - action: action_crear_agente   
+  
+- rule: crear_ventana_base
+  steps:
+  - intent: crear_ventana_base 
+  - action: action_crear_ventana_base  
+  
+  
+  

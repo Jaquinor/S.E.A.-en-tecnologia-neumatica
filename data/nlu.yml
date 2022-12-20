@@ -1,0 +1,170 @@
+version: "3.1"
+nlu:
+
+# tema_dialogo
+- intent: tema_dialogo/no_entrenado
+  examples: |
+    - [clima](tema_no_entrenado)
+    - [politica](tema_no_entrenado)
+    - [sexo](tema_no_entrenado)
+    - [religión](tema_no_entrenado)
+    - [deporte](tema_no_entrenado)
+    - [turismo](tema_no_entrenado)
+    - [arte](tema_no_entrenado)
+    - [espectaculo](tema_no_entrenado)
+- intent: tema_dialogo/neumatica
+  examples: |
+    - neumática
+    - tecnología neumatica
+- intent: tema_dialogo/Nacabot
+  examples: |
+    - ¿Eres un bot?
+    - ¿Eres un humano?
+    - ¿Qué eres?
+    - ¿Quien eres?
+    - ¿Estoy hablando con un bot?
+    - ¿Estoy hablando con un humano?
+- intent: tema_dialogo/funcion_nacabot
+  examples: |
+    - ¿cual es tu funcion?
+    - ¿para que sirves?
+    - ¿cuales son tus objetivos?
+    - ¿a que te dedicas?
+    - ¿Qué haces?
+    - ¿De qué te ocupas?
+    
+# charla    
+- intent: charla/saludar
+  examples: |
+    - hola
+    - buenos dias
+    - buenas noches
+    - buenas tardes
+    - hola amigo
+    - epale
+    - que tal
+    - que hubo
+- intent: charla/buen_humor
+  examples: |
+    - bien
+    - feliz
+    - motivado
+    - alegre
+    - confiado
+- intent: charla/mal_humor
+  examples: |
+    - mal
+    - infeliz
+    - desmotivado
+    - triste
+    - desconfiado
+    - deprimido
+- intent: charla/afirmar
+  examples: |
+    - si
+    - afirmativo
+    - correcto
+    - siempre
+    - ok
+- intent: charla/confirmar
+  examples: |
+    - confirmar
+    - aprobar
+    - ratificar
+- intent: charla/negar
+  examples: |
+    - no
+    - negativo
+    - incorrecto
+    - nunca
+    - nok
+- intent: charla/despedir
+  examples: |
+    - te veo luego
+    - adios
+    - que tengas un lindo dia
+    - ya nos veremos
+    - hasta luego
+    - hasta pronte
+    - chau
+    
+# definicion    
+- intent: definicion/neumatica
+  examples: |
+    - neumatica
+    - ¿Qué es la neumatica?
+    - ¿Cuál es la definición de neumatica?
+- intent: definicion/variables
+  examples: |
+    - variables
+    - ¿Qué variables usa la neumatica?
+    - ¿Cuáles son las variables de la neumatica?
+- intent: definicion/presion
+  examples: |
+    - presion
+    - ¿Qué es la presion?
+    - ¿Cuál es la definición de la presion?
+- intent: definicion/caudal
+  examples: |
+    - caudal
+    - ¿Qué es el caudal?
+    - ¿Cuál es la definición del caudal?
+- intent: definicion/trabajo
+  examples: |
+    - trabajo
+    - ¿con que se realiza un trabajo mecánico?
+    - ¿que dispositivo se utiliza para realizar un trabajo mecanico?
+- intent: definicion/cilindro
+  examples: |
+    - cilindro
+    - ¿Qué es un cilindro?
+    - ¿Cuál es la definición de cilindro?
+- intent: definicion/control
+  examples: |
+    - control
+    - ¿como se controla un proceso industrial?
+    - ¿que dispositivo se utiliza para controlar un proceso industrial?
+- intent: definicion/valvula
+  examples: |
+    - valvula
+    - ¿Qué es una valvula?
+    - ¿Cuál es la definición de valvula?
+- intent: solicitar_servicio
+  examples: |
+    - servicio
+    - entrenar
+    - asesorar
+- intent: iniciar
+  examples: |
+    - iniciar
+    - comenzar
+    - empezar
+- intent: crear_agente
+  examples: |
+    - establecer agente
+    - crear agente
+    - nuevo agente
+- intent: crear_ventana_base 
+  examples: |
+    - establecer ventana base 
+    - crear ventana base
+    - nueva ventana base  
+- intent: parar
+  examples: |
+    - detener
+    - parar
+    - suspender
+    - interrumpir
+- intent: nombre_usuario
+  examples: |
+    - [Usuario1](nombre_usuario)
+    - [Usuario2](nombre_usuario)
+    - [Usuario3](nombre_usuario)
+- intent: tipo_usuario
+  examples: |
+    - [experto](tipo_usuario)
+    - [vendedor](tipo_usuario)
+    - [cliente](tipo_usuario)
+- intent: charla
+  examples: |
+    - hola
