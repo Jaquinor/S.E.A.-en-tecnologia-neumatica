@@ -1,218 +1,217 @@
 version: '3.1'
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
 intents:
-# generales
-- afirmar
-- negar
-- saludar
-- despedirse
-- mostrar_buen_humor
-- mostrar_mal_humor
-- preguntar_por_bot
-# usuario
-- decir_apodo_usuario
-- decir_contrasena_usuario
-- decir_nombre_usuario
-- decir_apellido_usuario
-- decir_correo_usuario
-# cilindro
-- preguntar_por_cilindro
-- decir_tipo_cilindro
-- decir_diametro_cilindro
-- decir_carrera_cilindro
-# frl
-- preguntar_por_frl
-- decir_rosca_frl
-# manguera
-- preguntar_por_manguera
-- decir_diametro_manguera
-# racor
-- preguntar_por_racor
-- decir_tipo_racor
-- decir_rosca_racor
-- decir_diametro_racor
-# valvula
-- preguntar_por_valvula
-- decir_tipo_valvula
-- decir_rosca_valvula
-entities:
-# usuario
-- apodo_usuario
-- contrasena_usuario
+
+# ********** Estructura de la conversación 
+
+- iniciar
+- charla_cortez
+- charla_neumatica
+
+# validacion
 - nombre_usuario
-- apellido_usuario
-- correo_usuario
-# cilindro
-- tipo_cilindro
-- diametro_cilindro
-- carrera_cilindro
-# frl
-- rosca_frl
-# manguera
-- diametro_manguera
-# racor
-- tipo_racor
-- rosca_racor
-- diametro_racor
-# valvula
-- tipo_valvula
-- rosca_valvula
+- tipo_usuario
+- tipo_servicio
+
+- servicio
+- finalizar
+
+# ********** intenciones generales
+
+- confirmacion
+- afirmacion
+- negacion
+- duda
+       
+responses:
+
+# iniciar
+
+#... saludar
+
+  utter_iniciar/saludar:
+  - text: ¡Hola!, ¿cómo te sientes hoy?.
+  utter_iniciar/buen_humor:
+  - text: ¡Excelente, me alegro!.¿sobre que tema quieres dialogar?
+  utter_iniciar/mal_humor:
+  - text: Espero que todo mejore pronto.¿sobre que tema quieres dialogar?
+  
+# charla_cortez
+
+# ...sobre nacabot
+
+  utter_charla_cortez/quien_es_nacabot:
+  - text: Soy un agente conversacional, aprendiz de tecnología neumática.¿sobre que aspecto de la neumática quieres dialogar?          
+  utter_charla_cortez/que_funcion_nacabot:
+  - text: tengo cierta capacidad para entrenar o asesorar en neumática. ¿Deseas recibir entrenamiento o asesoría?
+          
+# ...sobre tema de dialogo 
+ 
+  utter_charla_cortez/nacabot_no_presta_servicio:
+  - text: Lo siento, no estoy capacitado en {tema_no_entrenado}, mi fuerte es la neumática.
+  utter_charla_cortez/nacabot_presta_servicio:
+  - text: ¡Excelente!, estoy capacitado en {tema_entrenado} 
+
+# charla_neumatica
+
+# ... neumatica
+  
+  utter_charla_neumatica/definicion_neumatica:
+  - text: La neumática es una técnica que utiliza el aire comprimido como fluido energético, para realizar un trabajo mecánico o para cotrolar un proceso industrial, esta tecnología utiliza dos variables
+  utter_charla_neumatica/variables_neumaticas:
+  - text: La neumática usa dos variables la presión y el caudal
+  utter_charla_neumatica/presion:
+  - text: La presión se expresa en bar y se relaciona con la fuerza del sistema neumático
+  utter_charla_neumatica/caudal:
+  - text: El caudal se expresa en ltr/min y se relaciona con la velocidad del sistema neumático
+  utter_charla_neumatica/trabajo:
+  - text: El trabajo mecánico lo realizan los cilindros neumáticos
+  utter_charla_neumatica/control:
+  - text: Los procesos industriales se controlan utilizando válvulas neumáticas
+ 
+# ... cilindro  
+  
+  utter_charla_neumatica/cilindro:
+  - text: Un cilindro es el elemento que realiza el trabajo mecánico dentro del sistema neumático, se define con el diametro y la carrera
+
+# ... valvula
+  
+  utter_charla_neumatica/valvula:
+  - text: Una válvula es el elemento que controla o direccionan el fluido neumático
+
+# validacion_usuario
+
+# ...formulario_usuario
+
+  utter_ask_formulario_usuario_nombre_usuario:
+  - text: ¿Cuál es tú nombre de usuario?
+  utter_ask_formulario_usuario_tipo_usuario:
+  - text: ¿Eres un experto, un vendedoror o un cliente?
+  utter_ask_formulario_usuario_tipo_servicio:
+  - text: ¿deseas recibir asesoría o entrenamiento?
+  
+# ...datos_usuario
+  
+  utter_nombre_usuario:
+  - text: El nombre de usuario es {nombre_usuario}
+  utter__tipo_usuario:
+  - text: El tipo de usuario es {tipo_usuario}
+  utter_tipo_servicio:
+  - text: El tipo de servicio es {tipo_servicio}
+  
+# servicio
+
+# ...inicio
+
+  utter_servicio:
+  - text: iniciando {tipo_servicio}...
+    
+# finalizar
+
+#...despedida
+
+  utter_finalizar/despedir:
+  - text: Hasta luego, espero que pronto volvamos a dialogar...  
+
+
+# ********** Conversación general
+
+# confirmar
+ 
+  utter_solicita_confirmacion:
+  - text: ¿Por favor confirmar?    
+
+  utter_recepcion_confirmacion:
+  - text: confirmación recibida
+  
+# afirmar
+  
+  utter_recepcion_afirmacion:
+  - text: afirmación recibida
+  
+# negar
+   
+  utter_recepcion_negacion:
+  - text: negación recibida
+  
+# dudar
+  
+  utter_recepcion_duda:
+  - text: duda recibida
+      
+entities:
+- tema_no_entrenado
+- tema_entrenado
+- nombre_usuario
+- tipo_usuario
+- tipo_servicio
+
+actions:
+
+- action_iniciar
+- action_charla_cortez
+- action_charla_neumatica
+- action_validacion_usuario
+- action_servicio
+- action_asesoria
+- action_entrenamiento
+- action_finalizar
+
 slots:
-# usuario
-  apodo_usuario:
+  tema_no_entrenado:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
-      entity: apodo_usuario
-  correo_usuario:
+      entity: tema_no_entrenado
+      intent: charla_cortez
+  tema_entrenado:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
-      entity: correo_usuario    
-  contrasena_usuario:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: contrasena_usuario
+      entity: tema_entrenado
+      intent: charla_cortez    
   nombre_usuario:
-    initial_value: usuario
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: nombre_usuario
-  apellido_usuario:
+      intent: nombre_usuario
+  tipo_usuario:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
-      entity: apellido_usuario
-# cilindro
-  tipo_cilindro:
+      entity: tipo_usuario
+      intent: tipo_usuario
+  tipo_servicio:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
-      entity: tipo_cilindro
-  diametro_cilindro:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: diametro_cilindro
-  carrera_cilindro:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: carrera_cilindro
-# frl 
-  rosca_frl:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: rosca_frl  
-# manguera
-  diametro_manguera:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: diametro_manguera
-# racor
-  tipo_racor:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: tipo_racor
-  rosca_racor:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: rosca_racor 
-  diametro_racor:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: diametro_racor 
-# valvula
-  tipo_valvula:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: tipo_valvula
-  rosca_valvula:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: rosca_valvula      
-responses:
-# usuario
-  utter_pregunta_nombre_usuario:
-  - text: ¿Cómo te llamas?
-  - text: ¿Cuál es tú nombre?
-  utter_pregunta_correo_usuario:
-  - text: ¿Cuál es tú correo?
-  - text: Dame tu e-mail, por favor
-  utter_saludo:
-  - text: ¡Epale {nombre_usuario}!, ¿Cómo estás?
-  - text: ¡Hola {nombre_usuario}!, ¿Cómo te encuentras?
-  utter_gusto:
-  - text: ¡Un gusto conocerte {nombre_usuario}!, ¿Cómo estás?
-  - text: ¡Mucho gusto {nombre_usuario}!, ¿Cómo te encuentras?
-  utter_animo:
-  - text: Espero que todo mejore pronto {nombre_usuario}, ¿Cómo puedo ayudarte?
-  - text: Deseo que puedas resolver tus problemas {nombre_usuario}, ¿De qué manera puedo ayudarte?
-  utter_felicidad:
-  - text: ¡Excelente {nombre_usuario}, me alegro!, ¿En qué puedo serte útil?
-  - text: ¡Estupendo!, ¿Qué estas buscando {nombre_usuario}?
-  utter_despedida:
-  - text: Adios
-  - text: Hasta luego
-  utter_quieneres:
-  - text: Soy NacaBot, un bot conversacional
-  - text: Soy un agente conversacional, para asesorías en neumática
-  - text: Soy un Chat Bot, creado por José Aquino para NACA
-  utter_confirmacion_componente_cilindro:
-  - text: ¿Trabajaremos con cilindros neumáticos?
-  utter_pregunta_carrera_cilindro:
-  - text: ¿Qué carrera buscas?
-  - text: ¿Cuál será el desplazamiento del vástago?
-  utter_confirmacion_componente_valvula:
-  - text: ¿Quieres que te ayude a seleccionar una válvula?
-  - text: ¿Trabajaremos con válvulas neumáticas?
-  utter_confirmacion_componente_frl:
-  - text: ¿Quieres que te ayude a seleccionar una unidad_de_mantenimiento?
-  - text: ¿Trabajaremos con frl?
-  utter_confirmacion_componente_manguera:
-  - text: ¿Quieres que te ayude a seleccionar una manguera?
-  - text: ¿Trabajaremos con tuberias neumáticas?
-  utter_confirmacion_componente_racor:
-  - text: ¿Quieres que te ayude a seleccionar un racor?
-  - text: ¿Trabajaremos con conexiones neumáticas?
-actions:
-- utter_animo
-- utter_confirmacion_componente_cilindro
-- utter_confirmacion_componente_manguera
-- utter_despedida
-- utter_gusto
-- utter_pregunta_carrera_cilindro
-- utter_pregunta_correo_usuario
-- utter_pregunta_nombre_usuario
-- utter_saludo
+      entity: tipo_servicio
+      intent: tipo_servicio      
+
 forms:
   formulario_usuario:
+    ignored_intents: 
+    - iniciar
+    - charla_cortez
+    - charla_neumatica
+    - servicio
+    - finalizar
+    - confirmacion
+    - afirmacion
+    - negacion
+    - duda
     required_slots:
-    - correo_usuario
     - nombre_usuario
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+    - tipo_usuario
+    
+
