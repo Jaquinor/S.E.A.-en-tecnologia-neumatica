@@ -37,6 +37,12 @@ nlu:
     - desconfiado
     - deprimido
     - no bien
+    
+- intent: crear_agentes
+  examples: |
+    - aggente
+    - crear agente 
+    - inicializa agentes    
 
 # charla_cortez
 
@@ -172,13 +178,26 @@ nlu:
 
 # servicio
 
+
 # ... inicio
              
 - intent: tipo_servicio
   examples: |
     - [asesoria](tipo_servicio)
-    - [entrenamiento](tipo_servicio)  
+    - [entrenamiento](tipo_servicio) 
+    
+- intent: servicio
+  examples: | 
+    - servicio 
+    - necesito servicio asesoria 
+    - necesito servicio entrenamiento
 
+- intent: interfaz
+  examples: | 
+    - interfaz 
+    - inicio interfaz
+    - interfaz de usuario    
+ 
 # finalizar
 
 #...despedida

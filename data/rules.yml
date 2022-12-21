@@ -10,6 +10,12 @@ rules:
   steps:
   - intent: iniciar
   - action: utter_iniciar
+  - action: action_iniciar
+
+- rule: crear_agentes
+  steps:
+  - intent: crear_agentes  
+  - action: action_crear_agentes
   
 # charla_cortez  
 
@@ -48,6 +54,17 @@ rules:
   - action: utter_nombre_usuario
   - action: utter__tipo_usuario
   - action: utter_tipo_servicio
+  
+- rule: servicio  
+  steps:
+  - intent: servicio
+  - action: action_servicio 
+ 
+- rule: interfaz  
+  steps:
+  - intent: interfaz 
+  - action: action_interfaz   
+   
       
 #- rule: camino_no_feliz_en_formulario_usuario
 #  condition:
@@ -90,11 +107,6 @@ rules:
   - action: utter_recepcion_duda    
 
 # Acciones personalizadas
-
-#- rule: iniciar  
-#  steps:
-#  - intent: iniciar
-#  - action: action_iniciar 
   
 #- rule: crear_agente
 #  steps:
